@@ -86,6 +86,7 @@ Public Class SdConfig
         Me.nudToggleSeconds.Enabled = False
         Me.chbServoSweep.Enabled = False
         Me.nudWS2812.Enabled = False
+        Me.lblServoWarning.Visible = False
 
         ' Default values
         Me.pnlDefaultState.Enabled = False
@@ -107,10 +108,11 @@ Public Class SdConfig
                 Me.nudToggleSeconds.Enabled = False
                 Me.chbServoSweep.Enabled = False
                 Me.nudWS2812.Enabled = True
+                Me.lblServoWarning.Visible = True
 
             Case TOGGLE_BUTTON
 
-                Me.pnlDefaultState.Enabled = True
+                Me.pnlDefaultState.Enabled = False
                 Me.nudServoMax.Enabled = False
                 Me.nudServoMin.Enabled = False
                 Me.nudServoOutput.Enabled = True

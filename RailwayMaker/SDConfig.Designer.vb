@@ -22,6 +22,7 @@ Partial Class SdConfig
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(SdConfig))
         Me.TreeView1 = New System.Windows.Forms.TreeView()
         Me.txtContent = New System.Windows.Forms.TextBox()
         Me.grpConfig = New System.Windows.Forms.GroupBox()
@@ -50,6 +51,7 @@ Partial Class SdConfig
         Me.cmbSDDrives = New System.Windows.Forms.ComboBox()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.lblServoWarning = New System.Windows.Forms.Label()
         Me.grpConfig.SuspendLayout()
         CType(Me.nudWS2812, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlDefaultState.SuspendLayout()
@@ -79,6 +81,7 @@ Partial Class SdConfig
         '
         'grpConfig
         '
+        Me.grpConfig.Controls.Add(Me.lblServoWarning)
         Me.grpConfig.Controls.Add(Me.nudWS2812)
         Me.grpConfig.Controls.Add(Me.Label7)
         Me.grpConfig.Controls.Add(Me.pnlDefaultState)
@@ -332,6 +335,16 @@ Partial Class SdConfig
         Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(121, 17)
         Me.ToolStripStatusLabel1.Text = "ToolStripStatusLabel1"
         '
+        'lblServoWarning
+        '
+        Me.lblServoWarning.AutoSize = True
+        Me.lblServoWarning.ForeColor = System.Drawing.Color.Red
+        Me.lblServoWarning.Location = New System.Drawing.Point(226, 123)
+        Me.lblServoWarning.Name = "lblServoWarning"
+        Me.lblServoWarning.Size = New System.Drawing.Size(262, 13)
+        Me.lblServoWarning.TabIndex = 34
+        Me.lblServoWarning.Text = "Servos are usually only used on toggle or timed modes"
+        '
         'SdConfig
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -344,6 +357,7 @@ Partial Class SdConfig
         Me.Controls.Add(Me.grpConfig)
         Me.Controls.Add(Me.txtContent)
         Me.Controls.Add(Me.TreeView1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.Name = "SdConfig"
         Me.Text = "RailwayMaker"
@@ -392,5 +406,6 @@ Partial Class SdConfig
     Friend WithEvents cmbSDDrives As System.Windows.Forms.ComboBox
     Friend WithEvents StatusStrip1 As System.Windows.Forms.StatusStrip
     Friend WithEvents ToolStripStatusLabel1 As System.Windows.Forms.ToolStripStatusLabel
+    Friend WithEvents lblServoWarning As System.Windows.Forms.Label
 
 End Class

@@ -93,6 +93,7 @@ Partial Class Form1
         Me.ClientSize = New System.Drawing.Size(656, 262)
         Me.Controls.Add(Me.ToolStrip1)
         Me.Controls.Add(Me.StatusStrip1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Form1"
         Me.Text = "RailwayMaker.com"
         Me.StatusStrip1.ResumeLayout(False)
