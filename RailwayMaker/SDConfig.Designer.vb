@@ -24,8 +24,9 @@ Partial Class SdConfig
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(SdConfig))
         Me.TreeView1 = New System.Windows.Forms.TreeView()
-        Me.txtContent = New System.Windows.Forms.TextBox()
+        Me.txtConfig = New System.Windows.Forms.TextBox()
         Me.grpConfig = New System.Windows.Forms.GroupBox()
+        Me.lblServoWarning = New System.Windows.Forms.Label()
         Me.nudWS2812 = New System.Windows.Forms.NumericUpDown()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.pnlDefaultState = New System.Windows.Forms.Panel()
@@ -51,7 +52,6 @@ Partial Class SdConfig
         Me.cmbSDDrives = New System.Windows.Forms.ComboBox()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.lblServoWarning = New System.Windows.Forms.Label()
         Me.grpConfig.SuspendLayout()
         CType(Me.nudWS2812, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlDefaultState.SuspendLayout()
@@ -70,14 +70,15 @@ Partial Class SdConfig
         Me.TreeView1.Size = New System.Drawing.Size(212, 408)
         Me.TreeView1.TabIndex = 0
         '
-        'txtContent
+        'txtConfig
         '
-        Me.txtContent.Location = New System.Drawing.Point(230, 284)
-        Me.txtContent.Multiline = True
-        Me.txtContent.Name = "txtContent"
-        Me.txtContent.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.txtContent.Size = New System.Drawing.Size(547, 136)
-        Me.txtContent.TabIndex = 1
+        Me.txtConfig.Location = New System.Drawing.Point(230, 284)
+        Me.txtConfig.Multiline = True
+        Me.txtConfig.Name = "txtConfig"
+        Me.txtConfig.ReadOnly = True
+        Me.txtConfig.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
+        Me.txtConfig.Size = New System.Drawing.Size(547, 136)
+        Me.txtConfig.TabIndex = 1
         '
         'grpConfig
         '
@@ -103,6 +104,16 @@ Partial Class SdConfig
         Me.grpConfig.TabIndex = 11
         Me.grpConfig.TabStop = False
         Me.grpConfig.Text = "Config"
+        '
+        'lblServoWarning
+        '
+        Me.lblServoWarning.AutoSize = True
+        Me.lblServoWarning.ForeColor = System.Drawing.Color.Red
+        Me.lblServoWarning.Location = New System.Drawing.Point(226, 123)
+        Me.lblServoWarning.Name = "lblServoWarning"
+        Me.lblServoWarning.Size = New System.Drawing.Size(262, 13)
+        Me.lblServoWarning.TabIndex = 34
+        Me.lblServoWarning.Text = "Servos are usually only used on toggle or timed modes"
         '
         'nudWS2812
         '
@@ -250,12 +261,10 @@ Partial Class SdConfig
         'nudToggleSeconds
         '
         Me.nudToggleSeconds.Location = New System.Drawing.Point(97, 97)
-        Me.nudToggleSeconds.Maximum = New Decimal(New Integer() {254, 0, 0, 0})
-        Me.nudToggleSeconds.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.nudToggleSeconds.Maximum = New Decimal(New Integer() {255, 0, 0, 0})
         Me.nudToggleSeconds.Name = "nudToggleSeconds"
         Me.nudToggleSeconds.Size = New System.Drawing.Size(120, 20)
         Me.nudToggleSeconds.TabIndex = 20
-        Me.nudToggleSeconds.Value = New Decimal(New Integer() {1, 0, 0, 0})
         '
         'chbServoSweep
         '
@@ -335,16 +344,6 @@ Partial Class SdConfig
         Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(121, 17)
         Me.ToolStripStatusLabel1.Text = "ToolStripStatusLabel1"
         '
-        'lblServoWarning
-        '
-        Me.lblServoWarning.AutoSize = True
-        Me.lblServoWarning.ForeColor = System.Drawing.Color.Red
-        Me.lblServoWarning.Location = New System.Drawing.Point(226, 123)
-        Me.lblServoWarning.Name = "lblServoWarning"
-        Me.lblServoWarning.Size = New System.Drawing.Size(262, 13)
-        Me.lblServoWarning.TabIndex = 34
-        Me.lblServoWarning.Text = "Servos are usually only used on toggle or timed modes"
-        '
         'SdConfig
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -355,7 +354,7 @@ Partial Class SdConfig
         Me.Controls.Add(Me.btnReadSD)
         Me.Controls.Add(Me.btnSaveSD)
         Me.Controls.Add(Me.grpConfig)
-        Me.Controls.Add(Me.txtContent)
+        Me.Controls.Add(Me.txtConfig)
         Me.Controls.Add(Me.TreeView1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
@@ -379,7 +378,7 @@ Partial Class SdConfig
 
     End Sub
     Friend WithEvents TreeView1 As System.Windows.Forms.TreeView
-    Friend WithEvents txtContent As System.Windows.Forms.TextBox
+    Friend WithEvents txtConfig As System.Windows.Forms.TextBox
     Friend WithEvents grpConfig As System.Windows.Forms.GroupBox
     Friend WithEvents chbServoSweep As System.Windows.Forms.CheckBox
     Friend WithEvents Label3 As System.Windows.Forms.Label
