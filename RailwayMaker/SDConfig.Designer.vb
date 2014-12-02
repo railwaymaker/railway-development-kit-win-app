@@ -67,7 +67,7 @@ Partial Class SdConfig
         '
         Me.TreeView1.Location = New System.Drawing.Point(12, 12)
         Me.TreeView1.Name = "TreeView1"
-        Me.TreeView1.Size = New System.Drawing.Size(212, 408)
+        Me.TreeView1.Size = New System.Drawing.Size(212, 535)
         Me.TreeView1.TabIndex = 0
         '
         'txtConfig
@@ -77,7 +77,7 @@ Partial Class SdConfig
         Me.txtConfig.Name = "txtConfig"
         Me.txtConfig.ReadOnly = True
         Me.txtConfig.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.txtConfig.Size = New System.Drawing.Size(547, 136)
+        Me.txtConfig.Size = New System.Drawing.Size(547, 263)
         Me.txtConfig.TabIndex = 1
         '
         'grpConfig
@@ -305,7 +305,7 @@ Partial Class SdConfig
         '
         'btnSaveSD
         '
-        Me.btnSaveSD.Location = New System.Drawing.Point(472, 12)
+        Me.btnSaveSD.Location = New System.Drawing.Point(472, 10)
         Me.btnSaveSD.Name = "btnSaveSD"
         Me.btnSaveSD.Size = New System.Drawing.Size(102, 23)
         Me.btnSaveSD.TabIndex = 12
@@ -314,7 +314,7 @@ Partial Class SdConfig
         '
         'btnReadSD
         '
-        Me.btnReadSD.Location = New System.Drawing.Point(355, 12)
+        Me.btnReadSD.Location = New System.Drawing.Point(355, 10)
         Me.btnReadSD.Name = "btnReadSD"
         Me.btnReadSD.Size = New System.Drawing.Size(111, 23)
         Me.btnReadSD.TabIndex = 13
@@ -324,7 +324,7 @@ Partial Class SdConfig
         'cmbSDDrives
         '
         Me.cmbSDDrives.FormattingEnabled = True
-        Me.cmbSDDrives.Location = New System.Drawing.Point(228, 14)
+        Me.cmbSDDrives.Location = New System.Drawing.Point(228, 12)
         Me.cmbSDDrives.Name = "cmbSDDrives"
         Me.cmbSDDrives.Size = New System.Drawing.Size(121, 21)
         Me.cmbSDDrives.TabIndex = 14
@@ -332,7 +332,7 @@ Partial Class SdConfig
         'StatusStrip1
         '
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1})
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 423)
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 550)
         Me.StatusStrip1.Name = "StatusStrip1"
         Me.StatusStrip1.Size = New System.Drawing.Size(789, 22)
         Me.StatusStrip1.TabIndex = 15
@@ -348,7 +348,7 @@ Partial Class SdConfig
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(789, 445)
+        Me.ClientSize = New System.Drawing.Size(789, 572)
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.cmbSDDrives)
         Me.Controls.Add(Me.btnReadSD)

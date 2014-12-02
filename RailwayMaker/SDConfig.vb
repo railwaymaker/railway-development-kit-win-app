@@ -25,7 +25,7 @@ Public Class SdConfig
     Private Const CONFIG_FILE_NAME As String = "config.txt"
 
     Dim ioConfig() As ioData
-
+    Dim configSettingId As Integer = 0
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
@@ -84,6 +84,7 @@ Public Class SdConfig
             Me.grpConfig.Text = TreeView1.SelectedNode.Text
 
             Dim io As Integer = CInt(TreeView1.SelectedNode.Text.Replace("i/o", ""))
+            configSettingId = io
 
             Me.rdoPush.Checked = False
             Me.rdoToggle.Checked = False
@@ -93,7 +94,7 @@ Public Class SdConfig
                 Me.rdoPush.Checked = True
                 Me.rdoToggle.Checked = False
                 Me.rdoTimed.Checked = False
-            ElseIf ioConfig(io).durationSeconds = -1 Then
+            ElseIf ioConfig(io).durationSeconds = -2 Then
                 Me.rdoPush.Checked = False
                 Me.rdoToggle.Checked = True
                 Me.rdoTimed.Checked = False
@@ -112,7 +113,7 @@ Public Class SdConfig
             End If
             If ioConfig(io).servoMax >= 150 And ioConfig(io).servoMax <= 550 Then Me.nudServoMax.Value = ioConfig(io).servoMax
             If ioConfig(io).servoMax >= 150 And ioConfig(io).servoMax <= 550 Then Me.nudServoMin.Value = ioConfig(io).servoMin
-            Me.nudServoOutput.Value = ioConfig(io).outputIO
+            If ioConfig(io).outputIO >= 0 And ioConfig(io).outputIO <= 32 Then Me.nudServoOutput.Value = ioConfig(io).outputIO
             'Me.nudToggleSeconds.Value = ioConfig(io).durationSeconds
             'Me.chbServoSweep.Enabled = False
             Me.nudWS2812.Value = ioConfig(io).ws2812id
@@ -127,16 +128,19 @@ Public Class SdConfig
 
     Private Sub rdoPush_CheckedChanged(sender As Object, e As EventArgs) Handles rdoPush.CheckedChanged
         SetButtonType(PUSH_BUTTON)
+        'If configSettingId > 0 Then ioConfig(configSettingId).durationSeconds = -1
         'updateConfig()
     End Sub
 
     Private Sub rdoToggle_CheckedChanged(sender As Object, e As EventArgs) Handles rdoToggle.CheckedChanged
         SetButtonType(TOGGLE_BUTTON)
+        'If configSettingId > 0 Then ioConfig(configSettingId).durationSeconds = -2
         'updateConfig()
     End Sub
 
     Private Sub rdoTimed_CheckedChanged(sender As Object, e As EventArgs) Handles rdoTimed.CheckedChanged
         SetButtonType(TIMED_BUTTON)
+        'If configSettingId > 0 Then ioConfig(configSettingId).durationSeconds = 0
         'updateConfig()
     End Sub
 
@@ -213,6 +217,9 @@ Public Class SdConfig
             'Me.nudServoOutput.Enabled = False
             Me.chbServoSweep.Enabled = False
         End If
+
+        ioConfig(configSettingId).outputIO = Me.nudServoOutput.Value
+
     End Sub
 
     Private Sub btnReadSD_Click(sender As Object, e As EventArgs) Handles btnReadSD.Click
@@ -341,4 +348,35 @@ Public Class SdConfig
 
     End Function
 
+    Private Sub nudServoMin_ValueChanged(sender As Object, e As EventArgs) Handles nudServoMin.ValueChanged
+        'If configSettingId > 0 Then ioConfig(configSettingId).servoMin = Me.nudServoMin.Value
+    End Sub
+
+    Private Sub nudToggleSeconds_ValueChanged(sender As Object, e As EventArgs) Handles nudToggleSeconds.ValueChanged
+        'If configSettingId > 0 Then ioConfig(configSettingId).durationSeconds = Me.nudToggleSeconds.Value
+    End Sub
+
+    Private Sub rdoOn_CheckedChanged(sender As Object, e As EventArgs) Handles rdoOn.CheckedChanged
+        'If Me.rdoOn.Checked Then
+        '    If configSettingId > 0 Then ioConfig(configSettingId).defaultState = True
+        'Else
+        '    If configSettingId > 0 Then ioConfig(configSettingId).defaultState = False
+        'End If
+    End Sub
+
+    Private Sub rdoOff_CheckedChanged(sender As Object, e As EventArgs) Handles rdoOff.CheckedChanged
+        'If Me.rdoOn.Checked Then
+        '    If configSettingId > 0 Then ioConfig(configSettingId).defaultState = True
+        'Else
+        '    If configSettingId > 0 Then ioConfig(configSettingId).defaultState = False
+        'End If
+    End Sub
+
+    Private Sub nudServoMax_ValueChanged(sender As Object, e As EventArgs) Handles nudServoMax.ValueChanged
+        'If configSettingId > 0 Then ioConfig(configSettingId).servoMax = Me.nudServoMax.Value
+    End Sub
+
+    Private Sub nudWS2812_ValueChanged(sender As Object, e As EventArgs) Handles nudWS2812.ValueChanged
+        'If configSettingId > 0 Then ioConfig(configSettingId).ws2812id = Me.nudWS2812.Value
+    End Sub
 End Class
